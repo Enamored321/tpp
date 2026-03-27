@@ -10,21 +10,29 @@
 }
 
 :root {
-    /* Color Palette - Clean Minimalist Light */
-    --bg-main: #e2e8f0; /* Visible soft slate gray */
-    --bg-secondary: #cbd5e1;
-    --bg-panel: #f8fafc; /* Card background */
-    --border-color: #94a3b8;
-    --primary: #2563eb; /* Royal Blue */
-    --primary-hover: #1d4ed8;
-    --accent: #f59e0b; /* Amber */
-    --text-main: #0f172a;
-    --text-muted: #475569;
-    --font-heading: 'Inter', sans-serif;
-    --font-body: 'Outfit', sans-serif;
-    --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 24px;
+    /**
+     * Палітра кольорів та дизайн-токени
+     * Всі кольори відповідають сучасній мінімалістичній світлій темі.
+     */
+    --bg-main: #e2e8f0;      /* Основний фон (м'який сірий) */
+    --bg-secondary: #cbd5e1; /* Вторинний фон для акцентів */
+    --bg-panel: #f8fafc;     /* Фон для карток та панелей */
+    --border-color: #94a3b8; /* Колір кордонів та ліній */
+    
+    --primary: #2563eb;       /* Головний акцентний синій (Royal Blue) */
+    --primary-hover: #1d4ed8; /* Колір кнопки при наведенні */
+    --accent: #f59e0b;        /* Додатковий акцентний (янтарний) */
+    
+    --text-main: #0f172a;     /* Основний колір тексту */
+    --text-muted: #475569;    /* Приглушений колір тексту */
+    
+    --font-heading: 'Inter', sans-serif; /* Шрифт для заголовків */
+    --font-body: 'Outfit', sans-serif;   /* Шрифт для основного тексту */
+    
+    --radius-sm: 6px;  /* Малий радіус заокруглення */
+    --radius-md: 12px; /* Середній радіус заокруглення */
+    --radius-lg: 24px; /* Великий радіус заокруглення (панелі) */
+    
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
     --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
