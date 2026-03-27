@@ -11,12 +11,14 @@
         "lint:js": "eslint js/**/*.js",
         "lint:css": "stylelint \"css/**/*.css\"",
         "lint:html": "html-validate index.html",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "docs:gen": "jsdoc -c jsdoc.json"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "eslint": "^10.1.0",
         "html-validate": "^8.29.0",
+        "jsdoc": "^4.0.5",
         "prettier": "^3.8.1",
         "stylelint": "^16.26.1",
         "stylelint-config-standard": "^36.0.1",
