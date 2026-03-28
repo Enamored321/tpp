@@ -3,6 +3,5 @@ dist/
 .DS_Store
 *.log
 log.txt
-package-lock.json
 /docs/gen/
 ProjectDocs.zip
