@@ -1,10 +1,20 @@
+import Logger from './logger.js';
+
+const log = new Logger('MainController');
+
 /**
  * Головна точка входу скрипта.
  * Налаштовує обробники подій для плавного прокручування та анімації елементів при скролі.
  */
 document.addEventListener('DOMContentLoaded', () => {
-    setupSmoothScrolling();
-    setupScrollReveal();
+    log.info('Запуск застосунку (Application started)');
+    try {
+        setupSmoothScrolling();
+        setupScrollReveal();
+        log.info('Базові події успішно налаштовано');
+    } catch (e) {
+        log.critical('Критична помилка при ініціалізації: ', e.message);
+    }
 });
 
 /**
@@ -15,7 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
  * @returns {void}
  */
 const setupSmoothScrolling = () => {
+    log.debug('Ініціалізація плавного прокручування');
     const navLinks = document.querySelectorAll('.nav-links a');
+
+    if (navLinks.length === 0) {
+        log.warn('Навігаційні посилання не знайдено в DOM');
+    }
 
     navLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
@@ -24,10 +39,13 @@ const setupSmoothScrolling = () => {
                 e.preventDefault();
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    log.debug(`Здійснено перехід до секції: ${targetId}`);
                     window.scrollTo({
                         top: targetElement.offsetTop - 70, // Adjust for navbar height
                         behavior: 'smooth',
                     });
+                } else {
+                    log.error(`Секція ${targetId} не знайдена в DOM для прокручування`);
                 }
             }
         });
@@ -57,6 +75,7 @@ const setupScrollReveal = () => {
     const handleIntersection = (entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
+                log.debug(`Елемент потрапив у в'юпорт: ${entry.target.tagName} ${entry.target.id}`);
                 entry.target.classList.add('reveal');
                 observer.unobserve(entry.target);
             }
@@ -69,4 +88,6 @@ const setupScrollReveal = () => {
         section.classList.add('hidden');
         sectionObserver.observe(section);
     });
+    
+    log.info(`Завершено ініціалізацію анімації для ${sections.length} елементів`);
 };
